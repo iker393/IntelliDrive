@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+</head>
+<body>
+<h2>works</h2>
+<h1 id="data"></h1>
+<script>
+        const dataElement = document.getElementById('data');
+        const socket = io()
+
+        socket.connect('http://127.0.0.1:5000/')
+        socket.on('connect',function(){
+            socket.send('a')
+        })
+        socket.on('data', (data) => {
+            dataElement.textContent = `Value: ${data.value}`;
+            socket.send('a');
+        })
+
+        
+
+
+</script>
+</body>
+</html>
