@@ -5,7 +5,6 @@ from flask_socketio import SocketIO, emit
 #from threading import Thread, Event
 
 
-#enviar datos en vivo
 app = Flask(__name__)
 app.config['SECRET_KEY']="secret"
 socket = SocketIO(app)
@@ -15,7 +14,7 @@ lista = ['hola', 'adios', 'hello', 'goodbye']
 i=0
 '''
 
-#importa el html(web)
+#Render HTML
 @app.route("/")
 def main():
         return render_template("index.html")
