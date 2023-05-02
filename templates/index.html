@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>IntelliDrive</title>
-    <script src="../sstatic/scripts/socket.io.js"></script>
-	<!-- Pulled from  due to network limitations https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.j -->
 <style type="text/css">
 @import url("../static/styles/styles.css");
 </style>
@@ -18,19 +16,17 @@
         <a href="../static/help.html">Help</a>
       </div>
     </nav>
-  <h1 id="data"></h1>
+  <h1 id="message"></h1>
     <script>
-            const dataElement = document.getElementById('data');
-            const socket = io()
-
-            socket.connect('http://127.0.0.1:5000/')
-            socket.on('connect',function(){
-                socket.send('a')
-            })
-            socket.on('data', (data) => {
-                dataElement.textContent = `RPM: ${data.value}`;
-                socket.send('a');
-            })
+        const socket = new WebSocket('ws://localhost:8000');
+            socket.addEventListener('open', function (event) {
+            socket.send('Connection Established');
+        });
+          socket.addEventListener('message', function (event) {
+            const message = event.data;
+            const element = document.querySelector('#message');
+            element.textContent = message;
+          });
     </script>
 
 
