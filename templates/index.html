@@ -16,16 +16,16 @@
         <a href="../static/help.html">Help</a>
       </div>
     </nav>
-  <h1 id="message"></h1>
+  <h1 id="rpm"></h1>
     <script>
         const socket = new WebSocket('ws://localhost:8000');
             socket.addEventListener('open', function (event) {
             socket.send('Connection Established');
         });
-          socket.addEventListener('message', function (event) {
-            const message = event.data;
-            const element = document.querySelector('#message');
-            element.textContent = message;
+          socket.addEventListener('rpm', function (event) {
+            const rpm = event.data;
+            const element = document.querySelector('#rpm');
+            element.textContent = rpm;
           });
     </script>
 

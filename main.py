@@ -7,8 +7,8 @@ import time
 # creating a handler for each connection
 async def handler(websocket, path):
     while True:
-        message = str(random.randint(1, 100))
-        await websocket.send(message)
+        rpm = str(random.randint(1, 100))
+        await websocket.send(rpm)
 
 
 start_server = websockets.serve(handler, "localhost", 8000)
