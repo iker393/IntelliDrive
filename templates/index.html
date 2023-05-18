@@ -8,6 +8,7 @@
 </style>
 
 </head>
+
 <body>
   <nav class="navbar">
       <div class="brand-name"><b>IntelliDrive</b></div>
@@ -16,7 +17,30 @@
         <a href="../static/help.html">Help</a>
       </div>
     </nav>
-  <h1 id="rpm"></h1>
+    
+ 
+  <div id= "rpm_box">
+  <h1 id= "rpm" color="black" align="center">RPM</h1>
+    </div>
+
+  <div id= "speed_box">
+  <h1 id= "speed" olor="black" align="center">SPEED</h1>
+    </div>
+    
+  <div id= "temperature_box">
+    <h1 id= "temperature" olor="black" align="center">TEMPERATURE</h1>
+      </div>
+
+  <div id= "pressure_box">
+    <h1 id= "pressure" olor="black" align="center">PRESSURE</h1>
+      </div>
+        
+
+
+
+
+
+
     <script>
         const socket = new WebSocket('ws://localhost:8000');
             socket.addEventListener('open', function (event) {
